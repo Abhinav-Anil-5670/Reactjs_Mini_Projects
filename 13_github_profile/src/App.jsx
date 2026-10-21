@@ -3,7 +3,7 @@ import useFetch from './hooks/useFetch'
 
 const App = () => {
   const [value, setValue] = useState("")
-  const [data, getData] = useFetch()
+  const [data, getData, not] = useFetch()
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', minHeight: '100vh', backgroundColor: '#f6f8fa', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '60px 20px' }}>
@@ -24,7 +24,7 @@ const App = () => {
           Search
         </button>
       </div>
-
+      { not && <h1>User Not Found</h1>}
       {
         data.login && (
           <div style={{ backgroundColor: '#ffffff', border: '1px solid #d0d7de', padding: '32px', borderRadius: '6px', width: '100%', maxWidth: '450px', display: 'flex', flexDirection: 'column', alignItems: 'center', boxShadow: '0 4px 12px rgba(0,0,0,0.05)' }}>
